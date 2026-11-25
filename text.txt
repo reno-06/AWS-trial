@@ -1,0 +1,7 @@
+================================================================================
+PROJECT TITLE OR FILE HEADING
+================================================================================
+
+Author: Your Name
+Date: November 25, 2026
+Repository: https://github.com/yourusername/your-repo-name
