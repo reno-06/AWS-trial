@@ -1,0 +1,35 @@
+================================================================================
+PROJECT TITLE OR FILE HEADING
+================================================================================
+
+Author: Your Name
+Date: November 25, 2026
+Repository: https://github.com/yourusername/your-repo-name
+
+--------------------------------------------------------------------------------
+1. OVERVIEW
+--------------------------------------------------------------------------------
+Write a short description of what this repository or file is about. Plain text
+files (.txt) are great for quick notes, changelogs, or simple instructions that
+can be read on any device without special software.
+
+--------------------------------------------------------------------------------
+2. KEY DETAILS / SETUP
+--------------------------------------------------------------------------------
+* Step 1: Clone or download the repository.
+* Step 2: Open the files in your preferred text editor.
+* Step 3: Update the content as needed and push your changes.
+
+--------------------------------------------------------------------------------
+3. NOTES & TODO LIST
+--------------------------------------------------------------------------------
+[x] Create initial repository on GitHub
+[ ] Add project files and documentation
+[ ] Review and test everything
+
+--------------------------------------------------------------------------------
+4. CONTACT
+--------------------------------------------------------------------------------
+GitHub: @yourusername
+Email: your.email@example.com
+================================================================================
