@@ -1,0 +1,209 @@
+:root {
+    --bg-color: #ffcebe; /* Soft peach sky */
+    --p1-color: #3b82f6; /* Blue car */
+    --p2-color: #ef4444; /* Red car */
+    --text-color: #1e293b;
+    --hud-bg: rgba(255, 255, 255, 0.6);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+    user-select: none;
+}
+
+body {
+    background: linear-gradient(to bottom, #ffd5c1 0%, #ffbcb0 100%);
+    color: var(--text-color);
+    overflow: hidden; 
+}
+
+/* Background Canvas */
+#bgCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+/* Matter.js auto-creates a canvas which we append to body, we'll style its container */
+canvas {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.score-display {
+    background: white;
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #334155;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transform: translateY(10px);
+}
+
+.player-hud {
+    background: var(--hud-bg);
+    padding: 15px 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+    backdrop-filter: blur(8px);
+    width: 250px;
+}
+
+.player-hud h2 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 8px;
+    color: #0f172a !important; /* Override */
+}
+
+.controls-hint {
+    font-size: 0.85rem;
+    color: #475569;
+    font-weight: 700;
+    margin-top: 8px;
+    opacity: 0.8;
+}
+
+.health-bar-bg {
+    width: 100%;
+    height: 18px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.health-bar-fill {
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    transition: width 0.2s ease-out;
+}
+
+#health-fill-p1 {
+    background: var(--p1-color);
+}
+
+#health-fill-p2 {
+    background: var(--p2-color);
+    float: right;
+}
+
+/* Modal Overlay */
+.overlay-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    transition: opacity 0.4s ease;
+}
+
+.overlay-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#main-title {
+    font-size: 5rem;
+    font-weight: 900;
+    color: white;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    margin-bottom: 15px;
+}
+
+#overlay-msg {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 40px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#start-btn {
+    padding: 16px 45px;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: white;
+    background: #0f172a;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s;
+}
+
+#start-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    background: #1e293b;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+#start-btn:active {
+    transform: translateY(2px);
+}
+
+.center-hud {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+}
+
+.water-timer {
+    margin-top: 15px;
+    font-weight: 900;
+    background: rgba(15, 23, 42, 0.7);
+    padding: 8px 20px;
+    border-radius: 20px;
+    color: #3b82f6;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    display: block; /* Shown only during playing */
+}
+
+.water-timer.rising {
+    color: #ef4444;
+    border-color: rgba(239, 68, 68, 0.6);
+    box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
